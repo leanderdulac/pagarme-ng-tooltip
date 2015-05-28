@@ -14,6 +14,7 @@ article{
 }
 
 $showingOpacity: 0.95;
+$tooltipBG: #484848;
 
 .trigger{
 
@@ -29,18 +30,22 @@ $showingOpacity: 0.95;
 
 .tooltip{
 
+	$_trns: 175ms ease-out;
+
 	position: absolute;
 	top:-9999px;
 	left:-9999px;
 	opacity:0;
 	padding: 0 10px;
 	border-radius: 4px;
-	background-color: #484848;
-	transition: opacity 175ms ease-out;
+	background-color: $tooltipBG;
+	transform: scale(0.925,0.925);
+	transition: opacity $_trns, transform $_trns;
 
 	&.showing{
 
 		opacity:$showingOpacity;
+		transform: scale(1,1);
 
 	}
 

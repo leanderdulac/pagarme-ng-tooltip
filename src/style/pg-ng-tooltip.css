@@ -24,6 +24,11 @@ article {
   padding: 0 10px;
   border-radius: 4px;
   background-color: #484848;
-  transition: opacity 175ms ease-out; }
+  -webkit-transform: scale(0.925, 0.925);
+  transform: scale(0.925, 0.925);
+  transition: opacity 175ms ease-out, -webkit-transform 175ms ease-out;
+  transition: opacity 175ms ease-out, transform 175ms ease-out; }
   .tooltip.showing {
-    opacity: 0.95; }
+    opacity: 0.95;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
