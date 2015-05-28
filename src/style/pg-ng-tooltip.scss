@@ -30,8 +30,8 @@ $showingOpacity: 0.95;
 .tooltip{
 
 	position: absolute;
-	top:0;
-	left:0;
+	top:-9999px;
+	left:-9999px;
 	opacity:0;
 	padding: 0 10px;
 	border-radius: 4px;

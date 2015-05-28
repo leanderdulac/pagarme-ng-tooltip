@@ -13,14 +13,14 @@
 	.directive('pgNgTooltip', tooltipCore)
 	.directive('tooltipTrigger', tooltipTrigger);
 
-	tooltipCore.$inject = ['$document'];
+	tooltipCore.$inject = ['$document', '$timeout'];
 
-	function tooltipCore($document){
+	function tooltipCore($document, $timeout){
 
 		var directive = {
 			scope:{
-				// showingClass: '@',
-				// textNode: '@',
+				showingClass: '@',
+				textNode: '@',
 			},
 			restrict: 'AEC',
 			link: postLink,
@@ -31,6 +31,24 @@
 		function postLink($scope, $element, attrs, ctrl){
 
 			var showing = false;
+			var showingClass = 'showing';
+			var textNode = $element;
+
+			if($scope.showingClass){
+
+				showingClass = $scope.showingClass;
+
+			}
+
+			if($scope.textNode){
+
+				$timeout(function(){
+
+					textNode = angular.element($element[0].querySelector($scope.textNode));
+
+				});
+
+			}
 
 			$scope.$on('pg-tooltip-show', show);
 			$scope.$on('pg-tooltip-hide', hide);
@@ -39,15 +57,15 @@
 			function show($evt, data){
 
 				showing = true;
-				$element.text(data.text);
-				$element.addClass('showing');
+				textNode.text(data.text);
+				$element.addClass(showingClass);
 				
 			}
 
 			function hide(){
 
 				showing = false;
-				$element.removeClass('showing');
+				$element.removeClass(showingClass);
 				$element.on('transitionend', transitionend);
 				
 			}
@@ -71,7 +89,7 @@
 					$element.removeAttr('style');
 
 				}
-				
+
 			}
 
 			function moveTooltip(x, y){
@@ -130,7 +148,8 @@
 		var directive = {
 			scope: {
 				text: '@tooltipText',
-				delay: '@',
+				showDelay: '@',
+				hideDelay: '@',
 			},
 			restrict: 'AEC',
 			link: postLink,
@@ -140,7 +159,8 @@
 
 		function postLink($scope, $element, attrs){
 
-			$scope.delay ? $scope.delay = parseInt($scope.delay) : $scope.delay = 0;
+			$scope.showDelay ? $scope.showDelay = parseInt($scope.showDelay) : $scope.showDelay = 0;
+			$scope.hideDelay ? $scope.hideDelay = parseInt($scope.hideDelay) : $scope.hideDelay = 0;
 
 			$element.on('mouseenter', showTrigger);
 			$element.on('mouseleave', hideTrigger);
@@ -154,7 +174,7 @@
 						text: $scope.text,
 					});					
 
-				}, $scope.delay);
+				}, $scope.showDelay);
 				
 			}
 
@@ -164,7 +184,7 @@
 
 					$rootScope.$broadcast('pg-tooltip-hide');
 					
-				}, $scope.delay);
+				}, $scope.hideDelay);
 				
 			}
 
