@@ -1,0 +1,22 @@
+{
+  "name": "pg-ng-tooltip",
+  "version": "1.0.0",
+  "homepage": "https://github.com/rfviolato/pg-ng-tooltip",
+  "authors": [
+    "Rafael Violato <rfviolato@gmail.com>"
+  ],
+  "description": "Pagar.me directive to provide simple a tooltip",
+  "keywords": [
+    "angularjs",
+    "directive",
+    "tooltip"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
