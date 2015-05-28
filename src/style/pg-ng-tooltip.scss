@@ -2,7 +2,7 @@ body{
 
 	padding: 32px;
 	font-family: Verdana;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 32px;
 	color: floralwhite;
 	background-color: cadetblue;
@@ -12,6 +12,8 @@ article{
 	width: 100%;
 	text-align: center;
 }
+
+$showingOpacity: 0.95;
 
 .trigger{
 
@@ -28,14 +30,17 @@ article{
 .tooltip{
 
 	position: absolute;
-	top:-9999px;
-	left:-9999px;
+	top:0;
+	left:0;
 	opacity:0;
+	padding: 0 10px;
+	border-radius: 4px;
+	background-color: #484848;
 	transition: opacity 175ms ease-out;
 
 	&.showing{
 
-		opacity:1;
+		opacity:$showingOpacity;
 
 	}
 
