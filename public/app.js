@@ -1,0 +1,1 @@
+angular.module('pg-ng-tooltip-demo', ['pg-ng-tooltip']);
