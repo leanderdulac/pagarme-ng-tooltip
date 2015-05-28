@@ -1,3 +1,44 @@
 body{
+
+	padding: 32px;
 	font-family: Verdana;
+	font-size: 16px;
+	line-height: 32px;
+	color: floralwhite;
+	background-color: cadetblue;
+}
+
+article{
+	width: 100%;
+	text-align: center;
+}
+
+.trigger{
+
+	$_size: 50px;
+
+	width: $_size;
+	height: $_size;
+	border-radius: $_size;
+
+	background-color: red;
+
+}
+
+.tooltip{
+
+	position: absolute;
+	top:-9999px;
+	left:-9999px;
+	opacity:0;
+	transition: opacity 175ms ease-out;
+
+	&.showing{
+
+		opacity:1;
+		top:0;
+		left:0;
+
+	}
+
 }

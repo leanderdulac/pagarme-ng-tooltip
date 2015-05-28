@@ -1,1 +1,1 @@
-body{font-family:Verdana}
+body{padding:32px;font-family:Verdana;font-size:16px;line-height:32px;color:#fffaf0;background-color:#5f9ea0}article{width:100%;text-align:center}.trigger{width:50px;height:50px;border-radius:50px;background-color:red}.tooltip{position:absolute;top:-9999px;left:-9999px;opacity:0;transition:opacity 175ms ease-out}.tooltip.showing{opacity:1;top:0;left:0}

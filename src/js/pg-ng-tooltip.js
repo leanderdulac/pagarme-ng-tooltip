@@ -4,6 +4,7 @@
 	rfviolato@gmail.com
 
 */
+
 'use strict';
 
 (function(){
@@ -12,49 +13,95 @@
 	.directive('pgNgTooltip', tooltipCore)
 	.directive('tooltipTrigger', tooltipTrigger);
 
+	//tooltipCore.$inject = [];
+
 	function tooltipCore(){
 
 		var directive = {
+			scope:{
+				showingClass: '@',
+				textNode: '@',
+			},
 			restrict: 'AEC',
-			controller: controller,
-			postLink: postLink,
+			link: postLink,
 		};
 
 		return directive;
 
-		function controller(){
+		function postLink($scope, $element, attrs, ctrl){
 
-			console.log('im up!');
-			
-		}
+			$scope.$on('pg-tooltip-show', show);
+			$scope.$on('pg-tooltip-hide', hide);
 
-		function postLink(){
+			function show($evt, data){
+
+				console.log(data.text);
+				$element.text(data.text);
+				$element.addClass('showing');
+				
+			}
+
+			function hide(){
+
+				$element.removeClass('showing');
+				
+			}
 			
 		}
 		
 	}
 
-	function tooltipTrigger(){
+	tooltipTrigger.$inject = ['$rootScope', '$timeout'];
+
+	function tooltipTrigger($rootScope, $timeout){
 
 		var directive = {
 			scope: {
 				text: '@tooltipText',
-				type: '@eventType',
+				delay: '@',
 			},
 			restrict: 'AEC',
-			controller: controller,
-			postLink: postLink,
+			link: postLink,
 		};
 
 		return directive;
 
-		function controller(){
+		function postLink($scope, $element, attrs){
 
-			console.log('im also up!');
-			
-		}
+			if($scope.delay){
 
-		function postLink(){
+				$scope.delay = parseInt($scope.delay);
+
+			}else{
+
+				$scope.delay = 0;
+
+			}
+
+			$element.on('mouseenter', showTrigger);
+			$element.on('mouseleave', hideTrigger);
+
+			function showTrigger(){
+
+				$timeout(function(){
+
+					$rootScope.$broadcast('pg-tooltip-show', {
+						text: $scope.text,
+					});					
+
+				}, $scope.delay);
+				
+			}
+
+			function hideTrigger(){
+
+				$timeout(function(){
+
+					$rootScope.$broadcast('pg-tooltip-hide');
+					
+				}, $scope.delay);
+				
+			}
 			
 		}
 		

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="src/style/pg-ng-tooltip.min.css">
 
     </head>
-    <body data-pg-ng-tooltip>
+    <body>
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -20,9 +20,11 @@
 
             <article>
                     
-                <div data-tooltip-trigger></div>
+                <div data-tooltip-trigger data-tooltip-text="Testing the text!" class="trigger"></div>
 
             </article>
+
+            <div data-pg-ng-tooltip class="tooltip"></div>
             
         </section>
 
