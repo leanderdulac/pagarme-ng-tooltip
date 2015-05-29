@@ -1,20 +1,45 @@
+/*
+	Images info:
+	Tesla: http://feelgrafix.com/data_images/out/24/945360-nikola-tesla.jpg
+	Carl Sagan: http://www.brainpickings.org/wp-content/uploads/2012/05/sagan1.jpg
+	Stephen Hawking: http://p1cdn05.thewrap.com/images/2014/10/Stephen-Hawking-Facebook-page.jpg
+*/
 body {
   padding: 32px;
   font-family: Verdana;
   font-size: 14px;
   line-height: 32px;
-  color: floralwhite;
-  background-color: cadetblue; }
+  color: papayawhip;
+  background-color: dimgrey; }
 
 article {
   width: 100%;
   text-align: center; }
 
+.title {
+  font-size: 32px;
+  line-height: 64px;
+  margin: 50px 0 7px 0; }
+
 .trigger {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  background-color: red; }
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  border: 2px solid papayawhip;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .trigger:not(:first-child) {
+    margin: 0 0 0 15px; }
+  .trigger:nth-child(1) {
+    background-image: url("../img/sagan.jpg");
+    background-position: center center; }
+  .trigger:nth-child(2) {
+    background-image: url("../img/tesla.jpg");
+    background-position: center center; }
+  .trigger:nth-child(3) {
+    background-image: url("../img/hawking.jpg");
+    background-position: center center; }
 
 .tooltip {
   position: absolute;
@@ -22,13 +47,16 @@ article {
   left: -9999px;
   opacity: 0;
   padding: 0 10px;
-  margin: 10px 0 0 0;
+  margin: -10px 0 0 6px;
   border-radius: 4px;
-  background-color: #484848;
+  border: 1px solid black;
+  background-color: rgba(72, 72, 72, 0.95);
   -webkit-transform: scale(0.925, 0.925);
   transform: scale(0.925, 0.925);
-  transition: opacity 175ms ease-out, -webkit-transform 175ms ease-out;
-  transition: opacity 175ms ease-out, transform 175ms ease-out; }
+  transition: opacity 125ms ease-out, -webkit-transform 125ms ease-out;
+  transition: opacity 125ms ease-out, transform 125ms ease-out; }
+  .tooltip:before {
+    content: ""; }
   .tooltip.showing {
     opacity: 0.95;
     -webkit-transform: scale(1, 1);

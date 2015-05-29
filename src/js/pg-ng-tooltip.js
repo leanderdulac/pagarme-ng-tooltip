@@ -65,7 +65,6 @@
 
 			function hide(){
 
-				showing = false;
 				$element.removeClass(showingClass);
 				$element.on('transitionend', transitionend);
 				
@@ -87,6 +86,7 @@
 				
 				if(!showing){
 
+					showing = false;
 					$element.removeAttr('style');
 
 				}
