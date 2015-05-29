@@ -1,8 +1,11 @@
 /*
+	
 	Images info:
+	
 	Tesla: http://feelgrafix.com/data_images/out/24/945360-nikola-tesla.jpg
 	Carl Sagan: http://www.brainpickings.org/wp-content/uploads/2012/05/sagan1.jpg
 	Stephen Hawking: http://p1cdn05.thewrap.com/images/2014/10/Stephen-Hawking-Facebook-page.jpg
+
 */
 body {
   font-family: Verdana;
@@ -58,7 +61,11 @@ article {
   height: 50px;
   border-radius: 50px;
   background-color: papayawhip;
-  border: 1px solid #484848; }
+  overflow: hidden;
+  background-image: url("../img/cursor.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 25px 25px; }
   .floating-trigger.mid-bottom {
     bottom: 18px;
     left: 50%;
@@ -78,7 +85,7 @@ article {
   padding: 0 12px;
   margin: -12px 0 0 6px;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid #323232;
   background-color: rgba(72, 72, 72, 0.95);
   -webkit-transform: scale(0.925, 0.925);
   transform: scale(0.925, 0.925);

@@ -73,6 +73,7 @@
 
 			function hide(){
 
+				$timeout.cancel(timeout);
 				$element.removeClass(showingClass);
 				$element.on('transitionend', transitionend);
 				
