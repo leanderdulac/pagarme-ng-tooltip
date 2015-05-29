@@ -1,11 +1,12 @@
 {
   "name": "pg-ng-tooltip",
   "version": "1.0.0",
-  "homepage": "https://github.com/rfviolato/pg-ng-tooltip",
+  "homepage": "https://github.com/pagarme/pg-ng-tooltip",
   "authors": [
     "Rafael Violato <rfviolato@gmail.com>"
   ],
   "description": "Pagar.me directive to provide simple a tooltip",
+  "main": "src/js/pg-ng-tooltip.js",
   "keywords": [
     "angularjs",
     "directive",
@@ -17,6 +18,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "index.html",
+    "gulpfile.js",
+    "package.json",
+    "tests",
+    "public",
+    "src/img"
   ]
 }
