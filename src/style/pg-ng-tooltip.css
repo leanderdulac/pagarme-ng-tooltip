@@ -22,6 +22,7 @@ article {
   left: -9999px;
   opacity: 0;
   padding: 0 10px;
+  margin: 10px 0 0 0;
   border-radius: 4px;
   background-color: #484848;
   -webkit-transform: scale(0.925, 0.925);

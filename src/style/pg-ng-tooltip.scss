@@ -19,7 +19,7 @@ $tooltipBG: #484848;
 .trigger{
 
 	$_size: 50px;
-
+	// position: absolute;
 	width: $_size;
 	height: $_size;
 	border-radius: $_size;
@@ -37,6 +37,7 @@ $tooltipBG: #484848;
 	left:-9999px;
 	opacity:0;
 	padding: 0 10px;
+	margin: 10px 0 0 0 ;
 	border-radius: 4px;
 	background-color: $tooltipBG;
 	transform: scale(0.925,0.925);

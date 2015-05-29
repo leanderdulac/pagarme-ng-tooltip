@@ -50,8 +50,9 @@
 
 			}
 
-			$scope.$on('pg-tooltip-show', show);
-			$scope.$on('pg-tooltip-hide', hide);
+			var $show = $scope.$on('pg-tooltip-show', show);
+			var $hide = $scope.$on('pg-tooltip-hide', hide);
+			$scope.$on('$destroy', destroy);
 			$document.on('mousemove', mousemove);
 
 			function show($evt, data){
@@ -116,7 +117,7 @@
 	            if((_widthAdjust + x) >= window.innerWidth){
 
 	              //position to the left
-	              _left = x - width;
+	              _left = x - _width;
 
 	            }else if(x - _widthAdjust <= 0){
 
@@ -125,7 +126,7 @@
 
 	            }else{
 
-	              //posicionar proximo ao mouse
+	              //position next to the cursor
 	              _left = x - _widthAdjust;
 
 	            }
@@ -134,6 +135,14 @@
 	            	top: _top + 'px',
 	            	left: _left + 'px',
 	            });
+				
+			}
+
+			function destroy(){
+
+				$document.off('mousemove', mousemove);
+				$show();
+				$hide();
 				
 			}
 			
@@ -162,8 +171,8 @@
 			$scope.showDelay ? $scope.showDelay = parseInt($scope.showDelay) : $scope.showDelay = 0;
 			$scope.hideDelay ? $scope.hideDelay = parseInt($scope.hideDelay) : $scope.hideDelay = 0;
 
-			$element.on('mouseenter', showTrigger);
-			$element.on('mouseleave', hideTrigger);
+			var $mousenter = $element.on('mouseenter', showTrigger);
+			var $mouseleave = $element.on('mouseleave', hideTrigger);
 			$scope.$on('$destroy', destroy);
 
 			function showTrigger(){
@@ -191,6 +200,8 @@
 			function destroy(){
 
 				$element.off('mouseenter mouseleave');
+				$mousenter();
+				$mouseleave();
 				
 			}
 			
