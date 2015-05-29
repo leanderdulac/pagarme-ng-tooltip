@@ -33,6 +33,7 @@
 			var showing = false;
 			var showingClass = 'showing';
 			var textNode = $element;
+			var timeout;
 
 			if($scope.showingClass){
 
@@ -60,6 +61,13 @@
 				showing = true;
 				textNode.text(data.text);
 				$element.addClass(showingClass);
+
+				if(data.hideTiming){
+
+					$timeout.cancel(timeout);
+					timeout = $timeout(hide, data.hideTiming);
+					
+				}
 				
 			}
 
@@ -157,6 +165,7 @@
 		var directive = {
 			scope: {
 				text: '@tooltipText',
+				hideTimeout: '@',
 				showDelay: '@',
 				hideDelay: '@',
 			},
@@ -170,6 +179,7 @@
 
 			$scope.showDelay ? $scope.showDelay = parseInt($scope.showDelay) : $scope.showDelay = 0;
 			$scope.hideDelay ? $scope.hideDelay = parseInt($scope.hideDelay) : $scope.hideDelay = 0;
+			$scope.hideTimeout ? $scope.hideTimeout = parseInt($scope.hideTimeout) : $scope.hideTimeout = false;
 
 			var $mousenter = $element.on('mouseenter', showTrigger);
 			var $mouseleave = $element.on('mouseleave', hideTrigger);
@@ -181,7 +191,8 @@
 
 					$rootScope.$broadcast('pg-tooltip-show', {
 						text: $scope.text,
-					});					
+						hideTiming: $scope.hideTimeout,
+					});
 
 				}, $scope.showDelay);
 				

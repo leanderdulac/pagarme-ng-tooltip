@@ -28,15 +28,15 @@ article {
   margin: -70px 0 0 0; }
 
 .title {
-  font-size: 32px;
+  font-size: 36px;
   line-height: 64px;
   margin: 0 0 7px 0; }
 
 .trigger {
   display: inline-block;
-  width: 80px;
-  height: 80px;
-  border-radius: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
   border: 2px solid papayawhip;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -75,9 +75,9 @@ article {
   top: -9999px;
   left: -9999px;
   opacity: 0;
-  padding: 0 10px;
+  padding: 0 12px;
   margin: -12px 0 0 6px;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid black;
   background-color: rgba(72, 72, 72, 0.95);
   -webkit-transform: scale(0.925, 0.925);
@@ -86,8 +86,6 @@ article {
   transition: opacity 125ms ease-out, transform 125ms ease-out; }
   .tooltip, .tooltip * {
     white-space: nowrap; }
-  .tooltip:before {
-    content: ""; }
   .tooltip.showing {
     opacity: 0.95;
     -webkit-transform: scale(1, 1);
