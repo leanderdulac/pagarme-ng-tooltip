@@ -16,7 +16,7 @@ $ bower install pg-ng-tooltip
 
 Import the directive file into your project:
 ```html
-<script src="bower_components/dest/pg-ng-tooltip.min.js"></script>
+<script src="bower_components/pg-ng-tooltip/dest/pg-ng-tooltip.min.js"></script>
 ```
 
 Load the pg-ng-tooltip module:
