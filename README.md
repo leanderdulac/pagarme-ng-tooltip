@@ -20,6 +20,11 @@ Import the directive file into your project:
 <script src="bower_components/pg-ng-tooltip/dest/pg-ng-tooltip.min.js"></script>
 ```
 
+If you wish the same style of the example, import the css.
+```html
+<link rel="stylesheet" type="text/css" href="dest/css/pg-ng-tooltip.min.css">
+```
+
 Load the pg-ng-tooltip module:
 ```javscript
 angular.module('myApp', ['pg-ng-tooltip']);
