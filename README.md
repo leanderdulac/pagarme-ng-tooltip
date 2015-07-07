@@ -1,7 +1,7 @@
-# [pg-ng-tooltip](http://pagarme.github.io/pg-ng-tooltip/)
+# [pagarme-ng-tooltip](http://pagarme.github.io/pagarme-ng-tooltip/)
 *[Pagar.me](http://pagar.me) directive to provide simple a tooltip*
 
-### Check the demo [here](http://pagarme.github.io/pg-ng-tooltip/)
+### Check the demo [here](http://pagarme.github.io/pagarme-ng-tooltip/)
 
 #### Installation
 
