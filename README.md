@@ -1,6 +1,7 @@
-# [pg-ng-tooltip](http://pagarme.github.io/pg-ng-tooltip/)
-
+# [pagarme-ng-tooltip](http://pagarme.github.io/pagarme-ng-tooltip/)
 *[Pagar.me](http://pagar.me) directive to provide simple a tooltip*
+
+### Check the demo [here](http://pagarme.github.io/pagarme-ng-tooltip/)
 
 #### Installation
 
@@ -17,6 +18,11 @@ $ bower install pg-ng-tooltip
 Import the directive file into your project:
 ```html
 <script src="bower_components/pg-ng-tooltip/dest/pg-ng-tooltip.min.js"></script>
+```
+
+If you wish the same style of the example, import the css.
+```html
+<link rel="stylesheet" type="text/css" href="dest/css/pg-ng-tooltip.min.css">
 ```
 
 Load the pg-ng-tooltip module:
