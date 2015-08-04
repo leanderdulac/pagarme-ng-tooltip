@@ -10,14 +10,9 @@ Install via npm package manager:
 $ npm install pg-ng-tooltip
 ```
 
-Or via Bower:
-```
-$ bower install pg-ng-tooltip
-```
-
 Import the directive file into your project:
 ```html
-<script src="bower_components/pg-ng-tooltip/dest/pg-ng-tooltip.min.js"></script>
+<script src="node_modules/pg-ng-tooltip/dest/pg-ng-tooltip.min.js"></script>
 ```
 
 If you wish the same style of the example, import the css.
