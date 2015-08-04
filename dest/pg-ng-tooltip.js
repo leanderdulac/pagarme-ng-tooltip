@@ -182,9 +182,8 @@
 			$scope.hideDelay ? $scope.hideDelay = parseInt($scope.hideDelay) : $scope.hideDelay = 0;
 			$scope.hideTimeout ? $scope.hideTimeout = parseInt($scope.hideTimeout) : $scope.hideTimeout = false;
 
-			var $mouseenter = $element.on('mouseenter', showTrigger);
-			var $mouseleave = $element.on('mouseleave', hideTrigger);
-
+			$element.on('mouseenter', showTrigger);
+			$element.on('mouseleave', hideTrigger);
 			$scope.$on('$destroy', destroy);
 
 			function showTrigger(){
@@ -213,8 +212,6 @@
 			function destroy(){
 
 				$element.off('mouseenter mouseleave');
-				$mouseenter();
-				$mouseleave();
 				
 			}
 			
