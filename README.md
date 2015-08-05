@@ -38,6 +38,11 @@ Given that the previous element is placed on your template file, you set as many
 
 #### Directive Optionals
 
+You can make the tooltip escape html content by setting `html="true"` on each trigger:
+```html
+<div data-tooltip-trigger data-html="true" data-text="<strong>Awesome</strong> html <br /> content."></div>
+```
+
 Showing tooltip class (default is `showing`):
 ```html
 <div pg-ng-tooltip showing-class="my-custom-class"></div>

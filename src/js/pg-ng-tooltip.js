@@ -18,10 +18,14 @@
 	function tooltipCore($document, $timeout){
 
 		var directive = {
+
 			scope:{
+			
 				showingClass: '@',
 				textNode: '@',
+
 			},
+
 			restrict: 'AEC',
 			link: postLink,
 		};
@@ -58,9 +62,15 @@
 
 			function show($evt, data){
 
-				showing = true;
-				textNode.text(data.text);
-				$element.addClass(showingClass);
+				if(data.html){
+
+					textNode.html(data.content);
+
+				}else{
+
+					textNode.text(data.content);
+
+				}
 
 				if(data.hideTiming){
 
@@ -68,6 +78,9 @@
 					timeout = $timeout(hide, data.hideTiming);
 					
 				}
+
+				showing = true;
+				$element.addClass(showingClass);
 				
 			}
 
@@ -164,12 +177,17 @@
 	function tooltipTrigger($rootScope, $timeout){
 
 		var directive = {
+			
 			scope: {
+				
 				text: '@tooltipText',
 				hideTimeout: '@',
 				showDelay: '@',
 				hideDelay: '@',
+				html: '@',
+
 			},
+
 			restrict: 'AEC',
 			link: postLink,
 		};
@@ -191,7 +209,8 @@
 				$timeout(function(){
 
 					$rootScope.$broadcast('pg-tooltip-show', {
-						text: $scope.text,
+						content: $scope.text,
+						html: $scope.html,
 						hideTiming: $scope.hideTimeout,
 					});
 
