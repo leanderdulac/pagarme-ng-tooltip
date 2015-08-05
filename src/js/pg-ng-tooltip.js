@@ -62,8 +62,6 @@
 
 			function show($evt, data){
 
-				showing = true;
-
 				if(data.html){
 
 					textNode.html(data.content);
@@ -74,14 +72,15 @@
 
 				}
 
-				$element.addClass(showingClass);
-
 				if(data.hideTiming){
 
 					$timeout.cancel(timeout);
 					timeout = $timeout(hide, data.hideTiming);
 					
 				}
+
+				showing = true;
+				$element.addClass(showingClass);
 				
 			}
 
