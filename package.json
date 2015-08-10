@@ -1,6 +1,6 @@
 {
   "name": "pg-ng-tooltip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Pagar.me directive to provide simple a tooltip",
   "main": "gulpfile.js",
   "scripts": {
