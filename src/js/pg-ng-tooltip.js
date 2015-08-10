@@ -94,14 +94,17 @@
 
 			function mousemove(evt){
 
-	            var _x = evt.pageX || evt.clientX;
-	            var _y = evt.pageY || evt.clientY;
+	            var _x;
+	            var _y;
 
 	            if(showing){
 
-	              moveTooltip(_x, _y);
+					_x = evt.pageX || evt.clientX;
+            		_y = evt.pageY || evt.clientY;
 
-	            }				
+            		moveTooltip(_x, _y);
+
+	            }
 			}
 
 			function transitionend(){
@@ -196,9 +199,9 @@
 
 		function postLink($scope, $element, attrs){
 
-			$scope.showDelay ? $scope.showDelay = parseInt($scope.showDelay) : $scope.showDelay = 0;
-			$scope.hideDelay ? $scope.hideDelay = parseInt($scope.hideDelay) : $scope.hideDelay = 0;
-			$scope.hideTimeout ? $scope.hideTimeout = parseInt($scope.hideTimeout) : $scope.hideTimeout = false;
+			$scope.showDelay = parseInt($scope.showDelay) || 0;
+			$scope.hideDelay = parseInt($scope.hideDelay) || 0;
+			$scope.hideTimeout = parseInt($scope.hideTimeout) || false;
 
 			$element.on('mouseenter', showTrigger);
 			$element.on('mouseleave', hideTrigger);
@@ -206,13 +209,22 @@
 
 			function showTrigger(){
 
+				var _data = {
+					
+					content: $scope.text,
+					hideTiming: $scope.hideTimeout,
+
+				};
+
+				if($scope.html){
+
+					_data.html = $scope.html;
+
+				}
+
 				$timeout(function(){
 
-					$rootScope.$broadcast('pg-tooltip-show', {
-						content: $scope.text,
-						html: $scope.html,
-						hideTiming: $scope.hideTimeout,
-					});
+					$rootScope.$broadcast('pg-tooltip-show', _data);
 
 				}, $scope.showDelay);
 				
