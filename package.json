@@ -1,6 +1,6 @@
 {
   "name": "pg-ng-tooltip",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pagar.me directive to provide simple a tooltip",
   "main": "gulpfile.js",
   "scripts": {
@@ -20,18 +20,20 @@
   "bugs": {
     "url": "https://github.com/pagarme/pg-ng-tooltip/issues"
   },
-  "homepage": "https://github.com/pagarme/pg-ng-dropdown",
+  "homepage": "https://github.com/pagarme/pg-ng-tooltip",
   "devDependencies": {
     "angular": "^1.4",
     "connect-livereload": "^0.5.3",
+    "del": "^1.2.0",
     "express": "^4.12.4",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.0",
     "gulp-minify-css": "^1.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0",
     "gulp-watch": "^4.2.4",
+    "merge-stream": "^0.1.7",
     "tiny-lr": "^0.1.5"
   },
   "ignore": [

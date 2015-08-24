@@ -5,22 +5,27 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
+var merge = require('merge-stream');
+var del = require('del');
+
+var projectFile = 'pg-ng-tooltip';
+
 
 var port = 4000;
 
 gulp.task('express', function(){
-	
-	var app = express();
-	app.use(require('connect-livereload')({port: 4002}));
-	app.use(express.static(__dirname));
-	app.listen(port);
+  
+  var app = express();
+  app.use(require('connect-livereload')({port: 4002}));
+  app.use(express.static(__dirname));
+  app.listen(port);
 
 });
 
 gulp.task('style', function(){
-	
-	return gulp.src('src/style/*.scss')
-  		   .pipe(sass({style: 'expanded'}))
+  
+  return gulp.src('src/style/*.scss')
+         .pipe(sass({style: 'expanded'}))
          .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -30,19 +35,43 @@ gulp.task('style', function(){
          .pipe(rename(function(path){
             path.extname = ".min.css";
          }))
-  		   .pipe(gulp.dest('src/style'));
+         .pipe(gulp.dest('src/style'));
 
 });
 
-gulp.task('build', ['style'], function(){
+gulp.task('clean:dest', function(cb){
 
-  return gulp.src('src/js/pg-ng-tooltip.js')
-         .pipe(gulp.dest('dest'))
-         .pipe(uglify({mangle: false}))
-         .pipe(rename(function(path){
-           path.extname = ".min.js";
-         }))
-         .pipe(gulp.dest('dest'));
+  del('./dest', cb);
+
+});
+
+
+gulp.task('build', ['style', 'clean:dest'], function(){
+
+  var js = gulp.src('src/js/' + projectFile + '.js')
+           .pipe(gulp.dest('dest/js'))
+           .pipe(uglify({mangle: false}))
+           .pipe(rename(function(path){
+             path.extname = ".min.js";
+           }))
+           .pipe(gulp.dest('dest/js'));
+
+  var cssFiles = [
+                  'src/style/' + projectFile + '.min.css',
+                  'src/style/' + projectFile + '.css'
+                 ];
+
+  var css = gulp.src(cssFiles)
+            .pipe(gulp.dest('dest/css'));
+
+  var sassFiles = [
+                   'src/style/' + projectFile + '.scss'
+                  ];
+
+  var sass = gulp.src(sassFiles)
+            .pipe(gulp.dest('dest/sass'));
+
+  return merge(js, css, sass);
 
 });
 

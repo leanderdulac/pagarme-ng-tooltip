@@ -1,0 +1,115 @@
+/*
+	
+	Images info:
+	
+	Tesla: http://feelgrafix.com/data_images/out/24/945360-nikola-tesla.jpg
+	Carl Sagan: http://www.brainpickings.org/wp-content/uploads/2012/05/sagan1.jpg
+	Stephen Hawking: http://p1cdn05.thewrap.com/images/2014/10/Stephen-Hawking-Facebook-page.jpg
+
+*/
+
+body{
+
+	font-family: Verdana;
+	font-size: 14px;
+	line-height: 32px;
+	color: papayawhip;
+	background-color: dimgrey;
+	overflow:hidden;
+}
+
+html, body, section{
+
+	height: 100%;
+	width: 100%;
+	border:0;
+	margin:0;
+
+}
+
+article{
+
+	position: relative;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	margin: -70px 0 0 0 ;
+
+}
+
+
+
+.title{
+
+	font-size: 36px;
+	line-height: 64px;
+	margin: 0 0 7px 0 ;
+
+}
+
+.trigger{
+
+	display: inline-block;
+	$_size: 100px;
+	width: $_size;
+	height: $_size;
+	border-radius: $_size;
+	border: 2px solid papayawhite;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&:not(:first-child){ margin: 0 0 0 15px ; }
+
+	&:nth-child(1){
+
+		background-image: url("../img/sagan.jpg");
+		background-position: center center;
+		
+	}
+
+	&:nth-child(2){
+
+		background-image: url("../img/tesla.jpg");
+		background-position: center center;
+		
+	}
+
+	&:nth-child(3){
+
+		background-image: url("../img/hawking.jpg");
+		background-position: center center;
+		
+	}
+
+}
+
+.floating-trigger{
+
+	$_size: 50px;
+
+	position: absolute;
+	width: $_size;
+	height: $_size;
+	border-radius: $_size;
+	background-color: papayawhite;
+	overflow:hidden;
+	background-image: url("../img/cursor.png");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 25px 25px;
+
+	&.mid-bottom{
+
+		bottom: 18px;
+		left:50%;
+		margin-left: -$_size/2;
+
+	}
+
+	&.bottom-left{ bottom:18px; left:27px; }
+
+	&.bottom-right{ bottom:18px; right:27px; }
+
+
+}
