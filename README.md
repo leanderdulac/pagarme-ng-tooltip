@@ -79,15 +79,9 @@ And that's it :D
 
 [Rafael Violato](http://rviolato.com) @ [pagar.me](http://pagar.me)
 
+## Support
+If you have any problem or suggestion please open an issue [here](https://github.com/pagarme/pagarme-ng-tooltip/issues).
 
+## License
 
----
-
-#### Demo Images urls
-
-
-*Tesla: http://feelgrafix.com/data_images/out/24/945360-nikola-tesla.jpg*
-
-*Carl Sagan: http://www.brainpickings.org/wp-content/uploads/2012/05/sagan1.jpg*
-
-*Stephen Hawking: http://p1cdn05.thewrap.com/images/2014/10/Stephen-Hawking-Facebook-page.jpg*
+Check [here](LICENSE).
